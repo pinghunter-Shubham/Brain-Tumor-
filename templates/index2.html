@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeForHealth</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style2.css')}}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container2">
+            <h1>HopeForHealth.in</h1>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="{{url_for('mainpage')}}">Home</a></li>
+                    <li><a href="{{url_for('output_page')}}">Detection</a></li>
+                    <li><a href="{{url_for('risk_page')}}">Risk Prediction</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="container">
+        <div class="form-section">
+            <form action="{{url_for('risk_factor')}}">
+                <P>RISK PREDICTION</P>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="RNASeqCluster">RNASeq</label>
+                        <input type="number" id="RNASeqCluster" name="RNASeqCluster">
+                    </div>
+                    <div class="form-group">
+                        <label for="MethylationCluster">Methylation</label>
+                        <input type="number" id="MethylationCluster" name="MethylationCluster">
+                    </div>
+                    <div class="form-group">
+                        <label for="miRNACluster">miRNA</label>
+                        <input type="number" id="miRNACluster" name="miRNACluster">
+                    </div>
+                    <div class="form-group">
+                        <label for="CNCluster">CN</label>
+                        <input type="number" id="CNCluster" name="CNCluster">
+                    </div>
+                    <div class="form-group">
+                        <label for="RPPACluster">RPPA</label>
+                        <input type="number" id="RPPACluster" name="RPPACluster">
+                    </div>
+                    <div class="form-group">
+                        <label for="OncosignCluster">Oncosign</label>
+                        <input type="number" id="OncosignCluster" name="OncosignCluster">
+                    </div>
+                    <div class="form-group">
+                        <label for="COCCluster">COC</label>
+                        <input type="number" id="COCCluster" name="COCCluster">
+                    </div>
+                    <div class="form-group">
+                        <label for="histological_type">Histological Type</label>
+                        <input type="number" id="histological_type" name="histological_type">
+                    </div>
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="neoplasm_histologic_grade">Grade</label>
+                        <input type="number" id="neoplasm_histologic_grade" name="neoplasm_histologic_grade">
+                    </div>
+                    <div class="form-group">
+                        <label for="tumor_tissue_site">Tumor Tissue Site</label>
+                        <input type="number" id="tumor_tissue_site" name="tumor_tissue_site">
+                    </div>
+                    <div class="form-group">
+                        <label for="laterality">Laterality</label>
+                        <input type="number" id="laterality" name="laterality">
+                    </div>
+                    <div class="form-group">
+                        <label for="tumor_location">Tumor Location</label>
+                        <input type="number" id="tumor_location" name="tumor_location">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <input type="number" id="gender" name="gender">
+                    </div>
+                    <div class="form-group">
+                        <label for="age_at_initial_pathologic">Age</label>
+                        <input type="number" id="age_at_initial_pathologic" name="age_at_initial_pathologic">
+                    </div>
+                    <div class="form-group">
+                        <label for="race">Race</label>
+                        <input type="number" id="race" name="race">
+                    </div>
+                    <div class="form-group">
+                        <label for="ethnicity">Ethnicity</label>
+                        <input type="number" id="ethnicity" name="ethnicity">
+                    </div>
+                </div>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+        <div class="text-box">
+            <p><b>{{tasks}}</b></p>
+        </div>
+    </div>
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <script>
+        $(window).on("load",function(){
+            $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
+</body>
+</html>

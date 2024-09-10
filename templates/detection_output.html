@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HopeForHealth</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container2">
+      <h1>HopeForHealth.in</h1>
+      <nav class="nav-bar">
+        <ul>
+          <li><a href="{{url_for('mainpage')}}">Home</a></li>
+          <li><a href="{{url_for('detector')}}">Detection</a></li>
+          <li><a href="{{url_for('risk_predictor')}}">Risk Prediction</a></li>
+        </ul>
+    </nav>
+    </div>
+  </header>
+  <div class="video-container">
+    <video autoplay muted loop id="background-video">
+      <source src="{{ url_for('static', filename='bg.mp4')}}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="container">
+    <div class="content-section">
+      <div class="left-section">
+        <div class="image-section">
+          <div class="image-box">
+            <p>INPUT IMAGE</p><br>
+            <img src="{{ url_for('static', filename='temp.jpg')}}" alt="error loading">
+          </div>
+          <div class="image-box">
+            <p>OUTPUT IMAGE</p><br>
+            <img src="{{ url_for('static', filename='result.jpg')}}" alt="error loading">
+          </div>
+        </div>
+        <div class="text-section">
+          <div class="text-box">
+            <p>This is some sample text content that will go inside the text box..</p>
+          </div>
+        </div>
+      </div>
+      <div class="right-section">
+        <div class="wrapper">
+          <header>UPLOAD YOUR IMAGE</header>
+          <form action="{{ url_for('detection_output')}}" method="post" enctype="multipart/form-data">
+            <input class="file-input" type="file" name="file"  accept=".tif, .tiff" hidden>
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Browse File to Upload</p>
+            <div class="wrap">
+              <button type="submit" class="button">Submit</button>
+            </div>
+          </form>
+          <section class="progress-area"></section>
+          <section class="uploaded-area"></section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+  <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+</html>

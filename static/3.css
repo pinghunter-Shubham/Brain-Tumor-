@@ -1,0 +1,55 @@
+.container {
+    background-color: #99caeda2;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    width: 600px;
+    height: 400px;
+}
+.img-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.img-box {
+    background-color: #8bbae9c5;
+    border: 2px solid #1a2b3c;
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.report-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.report-box {
+    background-color: #8bbae9c5;
+    border: 2px solid #1a2b3c;
+    border-radius: 10px;
+    width: 600px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+
+
+.upload-box:hover {
+    border-color: #00aced;
+}
+
