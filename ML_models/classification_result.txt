@@ -1,2 +1,2 @@
-glioma_tumor
-  Confidence score: 0.9942532
+pituitary_tumor
+  Confidence score: 0.999521

@@ -12,10 +12,10 @@ np.set_printoptions(suppress=True)
 
 # Load the model
 #model = load_model(r"/content/keras_model.h5", compile=False)
-model = tf.keras.models.load_model(r"keras_model.h5", compile=False) #Use tf.keras.models.load_model instead of load_model
+model = tf.keras.models.load_model(r"ML_models/keras_model.h5", compile=False) #Use tf.keras.models.load_model instead of load_model
 
 # Load the labels
-class_names = open(r"labels.txt", "r").readlines()
+class_names = open(r"ML_models/labels.txt", "r").readlines()
 
 # Create the array of the right shape to feed into the keras model
 # The 'length' or number of images you can put into the array is
@@ -48,5 +48,5 @@ confidence_score = prediction[0][index]
 # Print prediction and confidence score
 print("Class:", class_name[2:], end="")
 print("Confidence Score:", confidence_score)
-with open("classification_result.txt",'w') as file:
+with open("ML_models/classification_result.txt",'w') as file:
     file.write(class_name[2:]+"  Confidence score: "+str(confidence_score)+"\n")

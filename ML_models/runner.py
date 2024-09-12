@@ -1,4 +1,4 @@
 import os
 import sys
-def classify(fp):
-    os.system("PYTHONPATH=site-packages/ python3.11 tumor_classifier.py "+sys.argv[1])  
+def classify():
+    os.system("PYTHONPATH=ML_models/site-packages/ python3.11 ML_models/tumor_classifier.py ML_models/temp.png")

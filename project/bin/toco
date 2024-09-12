@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/souranil/Source Code/ML project/project/bin/python3" "$0" "$@"
+'''exec' "/home/souranil/Source Code/MLproject/project/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

@@ -2,6 +2,7 @@
 from flask import Flask,render_template,request
 from ML_models import tumor_detection
 from ML_models import image_conv
+from ML_models import runner
 import os
 
 print("There was no error in importing the elements")
@@ -26,7 +27,7 @@ def detection_output():
     destination=os.path.join(APP_ROUTE,"static")
     
     image.save("/".join([destination,"temp.tif"]))
-    print("The file path ot save the incoming image to: ",destination)
+    # print("The file path ot save the incoming image to: ",destination)
 
     # convert_jpg_to_tif('static/temp.jpg','static/temp.tif')
     tumor_detection.tumor_detect('static/temp.tif')
@@ -35,6 +36,25 @@ def detection_output():
     
     return render_template("detection_output.html", tasks=filename)
 
+
+#These two url are for handling the tumor image classification 
+@app.route('/classifier')
+def classifier():
+    return render_template('classifier.html')
+
+@app.route('/classifier_output',methods=['POST'])
+def classifier_output():
+    image=request.files.get('file')
+    filename=image.filename
+    destination=os.path.join(APP_ROUTE,"ML_models")
+    
+    image.save("/".join([destination,"temp.png"]))
+    # print("The file path ot save the incoming image to: ",destination)
+    runner.classify()
+    with open("ML_models/classification_result.txt","r") as file:
+        result=file.read()
+        # print("Classification model generated result==> \n",result)
+        return render_template("classifier_output.html", classification_result=result); 
 
 #These two url are for the risk predector page and the correponding output
 @app.route('/risk_predictor')

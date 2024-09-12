@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeForHealth</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style4.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>HopeForHealth.in</h1>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="{{url_for('mainpage')}}">Home</a></li>
+                    <li><a href="{{url_for('detector')}}">Detection</a></li>
+                    <li><a href="{{url_for('classifier')}}">Detection</a></li>
+                    <li><a href="{{url_for('risk_predictor')}}">Risk Prediction</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="{{ url_for('static', filename='bg.mp4')}}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <main>
+            <div class="upload-section">
+                <div class="upload-box">
+                    <div class="wrapper">
+                        <header>File Uploader JavaScript</header>
+                        <form action="{{ url_for('classifier_output')}}" method="post" enctype="multipart/form-data">
+                            <input class="file-input" type="file" name="file" hidden>
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Browse File to Upload</p>
+                            <div class="wrap">
+                                <button type="submit" class="button">Submit</button>
+                            </div>
+                        </form>
+                        <section class="progress-area"></section>
+                        <section class="uploaded-area"></section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <script src="{{ url_for('static', filename='script2.js')}}"></script>
+</body>
+</html>
