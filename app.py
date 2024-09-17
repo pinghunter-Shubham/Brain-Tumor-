@@ -60,11 +60,16 @@ def classifier_output():
 #These two url are for the risk predector page and the correponding output
 @app.route('/risk_predictor')
 def risk_predictor():
-    return 'This is the risk prediction page.'
+    return render_template('risk.html')
 
 @app.route('/risk_predictor_output')
 def risk_predictor_output():
-    return 'output'
+    pdf=request.files.get('file')
+    filename=pdf.filename
+    destination=os.path.join(APP_ROUTE,"static")
+    pdf.save("/".join([destination,"input_pdf.pdf"]))
+    
+    return render_template('risk.html')
 
 
 #This url is for the about us page
