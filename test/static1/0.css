@@ -1,9 +1,0 @@
-body {
-    font-family: Arial, sans-serif;
-    background-image: url("3D-Brain-Illustration.gif");
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-size: cover;
-}
