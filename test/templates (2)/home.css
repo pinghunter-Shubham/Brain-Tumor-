@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+body {
+  min-height: 100vh;
+  background: #6990F2;
+}
+::selection {
+  color: #fff;
+  background: #6990F2;
+}
+
+/* Adjust the video container to fit various screen sizes */
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+#background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: brightness(80%);
+}
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #242f3f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #fff;
+  animation: loader 3s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 3s infinite ease-in;
+}
+
+
+/* Customize the scrollbar for WebKit-based browsers (Chrome, Safari) */
+.textArea {
+    margin: 100px 20px;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.272);
+    border-radius: 10px;
+    max-width: 1200px;
+    width: 60%;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: transparent transparent; /* Transparent scrollbar in Firefox */
+  }
+  
+  /* WebKit-based browsers (Chrome, Safari) */
+  .textArea::-webkit-scrollbar {
+    width: 8px; /* Make scrollbar narrow */
+  }
+  
+  .textArea::-webkit-scrollbar-track {
+    background: transparent; /* Transparent background for scrollbar track */
+  }
+  
+  .textArea::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1); /* Slightly visible scrollbar thumb */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari, and Edge (optional) */
+  .textArea::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* For Firefox (optional scrollbar hiding) */
+  .textArea {
+    scrollbar-width: none;
+  }
+  
+  .img3D {
+    position: absolute;
+    margin-top: -10px;
+    margin-right: 25px;
+    right: 0;
+    top: 5%; /* Adjust this based on where you want the 3D image vertically */
+
+    border-radius: 10px;
+    height: 425px;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+    z-index: 30; /* Ensures it stays above other elements if needed */
+    width: 425px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling the iframe inside the img3D container */
+.img3D iframe {
+  width: 100%; /* Make the iframe take up the full width of the container */
+  height: 100%; /* Make the iframe take up the full height of the container */
+  border: none; /* Remove the default border around the iframe */
+  border-radius: 10px; /* Add some rounding to the corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+  background-color: transparent; /* Ensure transparency to fit with the theme */
+  z-index: 30; /* Keep it above background elements */
+}
+
+/* Adjustments for mobile view */
+@media (max-width: 768px) {
+  .img3D iframe {
+      width: 90%; /* Reduce the iframe width for smaller screens */
+      height: auto; /* Adjust the height accordingly */
+      border-radius: 8px; /* Slightly smaller rounded corners */
+  }
+}
+
+
+#container3D canvas {
+  width: 100px !important;
+  height: auto !important;
+  top: 0;
+  right: 0; /* Align to the right side */
+}
+
+
+/* Media Queries for Different Screen Sizes */
+@media (max-width: 1200px) {
+  .textArea {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .textArea {
+    margin: 80px 10px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .textArea {
+    margin: 50px 5px;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  header .container2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  .nav-bar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.list2{
+    margin-left: 80px;
+}
+  
+#container3D canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  

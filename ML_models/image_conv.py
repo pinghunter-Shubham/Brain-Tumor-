@@ -1,5 +1,5 @@
 #This module is responsible for converting the image file formats from tiff and jpeg
-
+from PIL import Image
 
 def convert_jpg_to_tif(jpg_path, tif_path):
     

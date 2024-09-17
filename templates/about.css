@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+body {
+  min-height: 100vh;
+  background: #6990F2;
+}
+::selection {
+  color: #fff;
+  background: #6990F2;
+}
+
+/* Adjust the video container to fit various screen sizes */
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+#background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: brightness(80%);
+}
+
+
+  
+  .person1 {
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 20px; 
+    margin: 150px 20px 30px 130px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 80%;
+  }
+  
+  .person {
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 20px; 
+    margin: 30px 20px 30px 130px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 80%;
+  }
+
+  .profile:hover {
+      transform: scale(1.05); /* Slightly increases the size */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases the shadow for a lifted effect */
+  }
+  
+  .all{
+    display: flex;
+  }
+  
+  .about {
+    width: 70%; 
+    padding: 30px;
+    color: white;
+    flex: 1 1 40%;
+    max-width: 45%; 
+    min-width: 300px;
+  }
+  
+  .profile {
+    display: flex;
+    width: 30%; 
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 40%;
+    max-width: 45%; 
+    min-width: 300px;
+  }
+  
+  .image {
+    width: auto;
+    height: 250px;
+    border-radius: 5px;
+  
+  }
+
+
+  .loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #242f3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #fff;
+    animation: loader 3s infinite ease;
+  }
+  
+  .loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 3s infinite ease-in;
+  }
+  
+  @keyframes loader {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(180deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes loader-inner {
+    0% { height: 0%; }
+    25% { height: 0%; }
+    50% { height: 100%; }
+    75% { height: 100%; }
+    100% { height: 0%; }
+  }
+  

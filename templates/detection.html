@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HopeForHealth</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/detection.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/nav.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/footer.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <!--header-->
+  <header class="main-header">
+    <div class="container2">
+      <img class="logo" src="logo.png">
+      <h1>HopeForHealth.in</h1>
+      <nav class="nav-bar">
+        <ul>
+          <li><a href="{{url_for('mainpage')}}">Home</a></li>
+          <li><a href="{{url_for('classifier')}}">Classification</a></li>
+          <li><a href="{{url_for('risk_predictor')}}">Risk Prediction</a></li>
+          <li><a href="{{url_for('about_us')}}">About Us</a></li>
+        </ul>
+    </nav>
+    </div>
+  </header>
+  <!--content area-->
+  <div class="video-container">
+    <video autoplay muted loop id="background-video">
+      <source src="{{url_for('static', filename='bg.mp4')}}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="container">
+    <div class="content-section">
+      <div class="left-section">
+        <div class="image-section">
+          <div class="image-box">
+            <p>INPUT IMAGE</p><br>
+            <img src="{{url_for('static', filename='img.jpg')}}" alt="error loading">
+          </div>
+          <div class="image-box">
+            <p>OUTPUT IMAGE</p><br>
+            <img src="{{url_for('static', filename='img.jpg')}}" alt="error loading">
+          </div>
+        </div>
+        <div class="text-section">
+          <div class="text-box">
+            <p>These are some sample images of the kind of output you may see.</p>
+          </div>
+        </div>
+      </div>
+      <div class="right-section">
+        <div class="wrapper">
+          <header>UPLOAD YOUR IMAGE</header>
+          <form action="{{ url_for('detection_output')}}" method="post" enctype="multipart/form-data">
+            <input class="file-input" type="file" name="file"  accept=".jpg, .tiff" hidden>
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Browse File to Upload</p>
+            <div class="wrap">
+              <button type="submit" class="button">Submit</button>
+            </div>
+          </form>
+          <section class="progress-area"></section>
+          <section class="uploaded-area"></section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div><br><br><br>
+  <!--footer-->
+  <footer>
+    <div class="footercontainar">
+        <div class="socialicons">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://github.com/pinghunter-Shubham/Brain-Tumor-"><i class="fa-brands fa-github"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footernav">
+            <ul>
+              <li><a href="{{url_for('mainpage')}}">Home</a></li>
+              <li><a href="{{url_for('detector')}}">Detection</a></li>
+              <li><a href="{{url_for('classifier')}}">Classification</a></li>
+              <li><a href="{{url_for('risk_predictor')}}">Risk Prediction</a></li>
+              <li><a href="{{url_for('about_us')}}">About Us</a></li>
+            </ul>
+        </div>
+ <!-- translator -->       
+ <div id="google_translate_element"></div>
+ <script type="text/javascript">
+     function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+             pageLanguage: 'en',
+             includedLanguages: 'bn,en,ar,zh-CN,zh-TW,nl,en,fr,de,el,hi,it,ja,ko,pt,ru,es,sv,ta,th,tr,vi,he,pl,cs,da,fi,hu,id,ms,ro,uk',
+             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+         }, 'google_translate_element');
+     }
+
+     setInterval(() => {
+         let top = document.getElementById(':2.container');
+         if (top) top.style.display = "none";
+     }, 300);
+ </script>
+ <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    </div>
+    <!--Copyright-->
+    <div class="footerbottom">
+        <p>Copyright &copy;2024; Designed by <span class="designer"> HopeForHealth.in </span> </p>
+    </div>
+  </footer>
+  <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>

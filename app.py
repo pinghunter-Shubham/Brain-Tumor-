@@ -1,4 +1,4 @@
-
+from ML_models.pdf_reader import read_pdf
 from flask import Flask,render_template,request
 from ML_models import tumor_detection
 from ML_models import image_conv
@@ -13,12 +13,12 @@ APP_ROUTE=os.path.dirname(os.path.abspath(__file__))
 @app.route("/")
 def mainpage():
     #main url function that will return the main home page
-    return 'Hello World'
+    return render_template("home.html")
 
 #These two url are for the mri image scanner and result
 @app.route('/detector')
 def detector():
-    return render_template('detector.html')
+    return render_template('detection.html')
 
 @app.route("/detector_output", methods=['POST','GET'])
 def detection_output():
@@ -40,7 +40,7 @@ def detection_output():
 #These two url are for handling the tumor image classification 
 @app.route('/classifier')
 def classifier():
-    return render_template('classifier.html')
+    return render_template('Classification.html')
 
 @app.route('/classifier_output',methods=['POST'])
 def classifier_output():
@@ -53,13 +53,24 @@ def classifier_output():
     runner.classify()
     with open("ML_models/classification_result.txt","r") as file:
         result=file.read()
+        # print(result.split())
         # print("Classification model generated result==> \n",result)
-        return render_template("classifier_output.html", classification_result=result); 
+        return render_template("Classification_output.html", classification_result=result.split()); 
 
 #These two url are for the risk predector page and the correponding output
 @app.route('/risk_predictor')
 def risk_predictor():
     return 'This is the risk prediction page.'
+
+@app.route('/risk_predictor_output')
+def risk_predictor_output():
+    return 'output'
+
+
+#This url is for the about us page
+@app.route('/about_us')
+def about_us():
+    return "This is about us!!!"
 
 if __name__=='__main__':
     app.run(debug=True)

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HopeForHealth</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="classification.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <!--header-->
+  <header class="main-header">
+    <div class="container2">
+      <img class="logo" src="logo.png">
+      <h1>HopeForHealth.in</h1>
+      <nav class="nav-bar">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="detection.html">Detection</a></li>
+          
+          <li><a href="risk.html">Risk Prediction</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+        </ul>
+    </nav>
+    </div>
+  </header>
+  <!--content area-->
+  <div class="video-container">
+    <video autoplay muted loop id="background-video">
+      <source src="bg.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="container">
+    <div class="content-section">
+      <div class="left-section">
+        <div class="image-section">
+          <div class="image-box">
+            <p>INPUT IMAGE</p><br>
+            <img class="img1" height="50px" src="img.jpg" alt="error loading">
+          </div>
+          
+        </div>
+        <div class="text-section">
+          <div class="text-box">
+            <p>This is some sample text content that will go inside the text box..</p>
+          </div>
+        </div>
+      </div>
+      <div class="right-section">
+        <div class="wrapper">
+          <header>UPLOAD YOUR IMAGE</header>
+          <form action="{{ url_for('output_page')}}" method="post" enctype="multipart/form-data">
+            <input class="file-input" type="file" name="file"  accept=".jpg, .tiff" hidden>
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Browse File to Upload</p>
+            <div class="wrap">
+              <button type="submit" class="button">Submit</button>
+            </div>
+          </form>
+          <section class="progress-area"></section>
+          <section class="uploaded-area"></section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="classImgCon">
+  <div class="classImg">
+    <img class="classImg1" src="img1.jpg">
+    <p><b>Glioma Tumor:</b> Gliomas are tumors that arise from glial cells in the brain or spine. They are classified based on their location and the type of glial cells involved. Gliomas can vary in aggressiveness, with some being relatively slow-growing and others highly malignant. Common types include astrocytomas, oligodendrogliomas, and ependymomas.</p>
+  </div>
+  <div class="classImg">
+    <img class="classImg1" src="img2.jpg">
+    <p><b>Meningioma Tumor:</b> Meningiomas are tumors that develop from the meninges, the protective membranes covering the brain and spinal cord. They are often slow-growing and typically benign, though they can cause symptoms by pressing on nearby brain structures. Treatment usually involves surgical removal, and in some cases, radiation therapy.</p>
+  </div>
+  <div class="classImg">
+    <img class="classImg1" src="img3.jpg">
+    <p><b>Pituitary Tumor:</b> Pituitary tumors originate in the pituitary gland, which is located at the base of the brain and regulates various hormonal functions. These tumors can be non-cancerous (benign) or, rarely, cancerous (malignant). Symptoms often result from hormonal imbalances or pressure on surrounding structures, and treatment may involve surgery, medication, or radiation therapy.</p>
+  </div>
+</div>
+
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+  <!--footer-->
+  <footer>
+    <div class="footercontainar">
+        <div class="socialicons">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://github.com/pinghunter-Shubham/Brain-Tumor-"><i class="fa-brands fa-github"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footernav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="detection.html">Detection</a></li>
+                <li><a href="Classification.html">Classification</a></li>
+                <li><a href="risk.html">Risk Prediction</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+            </ul>
+        </div>
+ <!-- translator -->       
+ <div id="google_translate_element"></div>
+ <script type="text/javascript">
+     function googleTranslateElementInit() {
+         new google.translate.TranslateElement({
+             pageLanguage: 'en',
+             includedLanguages: 'bn,en,ar,zh-CN,zh-TW,nl,en,fr,de,el,hi,it,ja,ko,pt,ru,es,sv,ta,th,tr,vi,he,pl,cs,da,fi,hu,id,ms,ro,uk',
+             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+         }, 'google_translate_element');
+     }
+
+     setInterval(() => {
+         let top = document.getElementById(':2.container');
+         if (top) top.style.display = "none";
+     }, 300);
+ </script>
+ <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    </div>
+    <!--Copyright-->
+    <div class="footerbottom">
+        <p>Copyright &copy;2024; Designed by <span class="designer"> HopeForHealth.in </span> </p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
