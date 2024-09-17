@@ -70,7 +70,7 @@ def risk_predictor_output():
 #This url is for the about us page
 @app.route('/about_us')
 def about_us():
-    return "This is about us!!!"
+    return render_template('AboutUs.html')
 
 if __name__=='__main__':
     app.run(debug=True)
