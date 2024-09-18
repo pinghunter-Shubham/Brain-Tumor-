@@ -4,8 +4,7 @@ from ML_models import tumor_detection
 from ML_models import image_conv
 from ML_models import runner
 import os
-
-print("There was no error in importing the elements")
+from ML_models.risk_predictor import predict_risk
 
 app=Flask(__name__)
 APP_ROUTE=os.path.dirname(os.path.abspath(__file__))
@@ -62,13 +61,21 @@ def classifier_output():
 def risk_predictor():
     return render_template('risk.html')
 
-@app.route('/risk_predictor_output')
+@app.route('/risk_predictor_output', methods=['POST'])
 def risk_predictor_output():
     pdf=request.files.get('file')
     filename=pdf.filename
     destination=os.path.join(APP_ROUTE,"static")
     pdf.save("/".join([destination,"input_pdf.pdf"]))
     
+    pdf_data=read_pdf("ML_models/Report.pdf")
+    print("PDF data read from the file")
+    print(pdf_data)
+
+    result=predict_risk(RNASeqCluster=pdf_data['RNASeqCluster'], MethylationCluster=pdf_data['MethylationCluster'],miRNACluster=pdf_data['miRNACluster'],OncosignCluster=pdf_data['OncosignCluster'],COCCluster=pdf_data['COCCluster'],neoplasm_histologic_grade=pdf_data['Neoplasm Histologic Grade'],tumor_tissue_site=pdf_data['Tumor Tissue Site'], laterality=pdf_data['Laterality'], tumor_location=pdf_data['Tumor Location'], gender=pdf_data['Gender'], age_at_initial_pathologic=pdf_data['Age at Initial Pathologic Diagnosis'],race=pdf_data['Race'],ethnicity=pdf_data['Ethnicity'],CNCluster=pdf_data['CNCluster'],RPPACluster=pdf_data['RPPACluster'],histological_type=pdf_data['Histological Type'])
+
+    print("The result of the prediction: ", result)
+
     return render_template('risk.html')
 
 
